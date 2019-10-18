@@ -1,5 +1,6 @@
 package com.example.diceroller;
 
+import android.annotation.SuppressLint;
 import android.os.Bundle;
 
 import com.google.android.material.floatingactionbutton.FloatingActionButton;
@@ -11,11 +12,13 @@ import androidx.appcompat.widget.Toolbar;
 import android.view.View;
 import android.view.Menu;
 import android.view.MenuItem;
+import android.widget.EditText;
 import android.widget.TextView;
 
 import java.util.Random;
 
 public class MainActivity extends AppCompatActivity {
+    EditText userInput;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -57,12 +60,28 @@ public class MainActivity extends AppCompatActivity {
 
     }
 
-    public void on_button(View view){
-        TextView tv = this.findViewById(R.id.textView);
+    @SuppressLint("SetTextI18n")
+    public void on_button(View view) {
 
+        TextView tv = this.findViewById(R.id.rndNumDisplay);
+        TextView grats = this.findViewById(R.id.congratsDisplay);
         Random r = new Random();
-        int number = r.nextInt(10);
+        int num = r.nextInt(6);
 
-        tv.setText(Integer.toString(number));
+        tv.setText(Integer.toString(num));
+        userInput = findViewById(R.id.userInput);
+
+        String input = userInput.getText().toString();
+        if (input.matches("\\D*")) {
+            grats.setText("Please enter numbers only");
+        } else {
+            if (num == Integer.valueOf(input)) {
+                grats.setText("Congratulations");
+            } else {
+                grats.setText("Try again");
+            }
+
+
+        }
     }
 }
