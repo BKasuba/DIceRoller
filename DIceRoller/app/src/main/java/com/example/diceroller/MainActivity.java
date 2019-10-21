@@ -14,11 +14,13 @@ import android.view.Menu;
 import android.view.MenuItem;
 import android.widget.EditText;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import java.util.Random;
 
 public class MainActivity extends AppCompatActivity {
     EditText userInput;
+    static int score = 0;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -65,17 +67,24 @@ public class MainActivity extends AppCompatActivity {
 
         TextView tv = this.findViewById(R.id.rndNumDisplay);
         TextView grats = this.findViewById(R.id.congratsDisplay);
+        TextView scoreCntr = this.findViewById(R.id.pointCounter);
         Random r = new Random();
-        int num = r.nextInt(6);
+        int num = r.nextInt(6)+1;
+
 
         tv.setText(Integer.toString(num));
         userInput = findViewById(R.id.userInput);
 
         String input = userInput.getText().toString();
+
         if (input.matches("\\D*")) {
             grats.setText("Please enter numbers only");
         } else {
+
             if (num == Integer.valueOf(input)) {
+
+
+                scoreCntr.setText(""+(++score));
                 grats.setText("Congratulations");
             } else {
                 grats.setText("Try again");

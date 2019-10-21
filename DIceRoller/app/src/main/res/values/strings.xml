@@ -4,4 +4,6 @@
     <string name="roll_the_dice">Roll the dice</string>
     <string name="enter_a_number">Enter a number</string>
     <string name="enter_your_guess_in_the_field_below">Enter your guess in the field below</string>
+    <string name="score">Score:</string>
+    <string name="roll_result">Roll result</string>
 </resources>
