@@ -6,4 +6,6 @@
     <string name="enter_your_guess_in_the_field_below">Enter your guess in the field below</string>
     <string name="score">Score:</string>
     <string name="roll_result">Roll result</string>
+    <string name="i_am_feeling_lucky">I am feeling lucky</string>
+    <string name="d_icebreaker">D-ICEBREAKER</string>
 </resources>
