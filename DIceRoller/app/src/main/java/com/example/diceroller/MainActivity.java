@@ -1,6 +1,7 @@
 package com.example.diceroller;
 
 import android.annotation.SuppressLint;
+import android.content.Intent;
 import android.os.Bundle;
 
 import com.google.android.material.floatingactionbutton.FloatingActionButton;
@@ -22,6 +23,12 @@ public class MainActivity extends AppCompatActivity {
     EditText userInput;
     static int score = 0;
     int num = 0;
+    static String qstn1 = "If you could go anywhere in the world, where would you go?";
+    static String qstn2 = "If you were stranded on a desert island, what three things would you want to take with you?";
+    static String qstn3 = "If you could eat only one food for the rest of your life, what would that be?";
+    static String qstn4 = "If you won a million dollars, what is the first thing you would buy?";
+    static String qstn5 = "If you could spend the day with one fictional character, who would it be?";
+    static String qstn6 = "If you found a magic lantern and a genie gave you three wishes, what would you wish?";
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -94,7 +101,11 @@ public class MainActivity extends AppCompatActivity {
         }
     }
     public void onButtonBreaker (View view ){
+
         dicebrkr(num);
+    }
+    public void onButtonSettings(View view ){
+        startActivity(new Intent(MainActivity.this, DicebreakerSettings.class));
     }
     public void dicebrkr(int x ){
         TextView qstn = this.findViewById(R.id.questionDisplay);
@@ -103,22 +114,22 @@ public class MainActivity extends AppCompatActivity {
                 qstn.setText("Roll the die first!!");
                 break;
             case 1:
-                qstn.setText("If you could go anywhere in the world, where would you go?");
+                qstn.setText(qstn1);
                 break;
             case 2:
-                qstn.setText("If you were stranded on a desert island, what three things would you want to take with you?");
+                qstn.setText(qstn2);
                 break;
             case 3:
-                qstn.setText("If you could eat only one food for the rest of your life, what would that be?");
+                qstn.setText(qstn3);
                 break;
             case 4:
-                qstn.setText("If you won a million dollars, what is the first thing you would buy?");
+                qstn.setText(qstn4);
                 break;
             case 5:
-                qstn.setText("If you could spend the day with one fictional character, who would it be?");
+                qstn.setText(qstn5);
                 break;
             case 6:
-                qstn.setText("If you found a magic lantern and a genie gave you three wishes, what would you wish?");
+                qstn.setText(qstn6);
                 break;
 
 
@@ -129,7 +140,6 @@ public class MainActivity extends AppCompatActivity {
     }
     public int rndNum(){
         Random r = new Random();
-        int num = r.nextInt(6)+1;
-        return num;
+        return r.nextInt(6)+1;
     }
 }
