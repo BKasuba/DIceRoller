@@ -7,10 +7,10 @@
     tools:context=".MainActivity">
 
     <TextView
-        android:id="@+id/textView6"
+        android:id="@+id/playerValue"
         android:layout_width="248dp"
         android:layout_height="25dp"
-        android:text="TextView"
+        android:hint="Player Value display"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
@@ -21,7 +21,8 @@
         android:id="@+id/mainText"
         android:layout_width="190dp"
         android:layout_height="53dp"
-        android:text="MainMessage"
+        android:hint="Main Messages"
+        android:text="Main"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
@@ -31,7 +32,7 @@
         android:id="@+id/deckStatus"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Deck Status"
+        android:hint="Deck status"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toEndOf="@+id/mainText"
@@ -41,7 +42,7 @@
         android:id="@+id/playerHandDIsplay"
         android:layout_width="321dp"
         android:layout_height="107dp"
-        android:text="TextView"
+        android:hint="Player hand display"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
@@ -61,10 +62,69 @@
         android:id="@+id/dealerHandValue"
         android:layout_width="245dp"
         android:layout_height="25dp"
-        android:text="TextView"
+        android:hint="Dealer hand value"
         app:layout_constraintBottom_toTopOf="@+id/mainText"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/dealerHandDisplay"
         app:layout_constraintVertical_bias="0.0" />
+
+    <TextView
+        android:id="@+id/playerCash"
+        android:layout_width="87dp"
+        android:layout_height="21dp"
+        android:hint="Player cash"
+        app:layout_constraintBottom_toTopOf="@+id/playerHandDIsplay"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.861"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/mainText"
+        app:layout_constraintVertical_bias="0.935" />
+
+    <Button
+        android:id="@+id/hit"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="hit"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.105"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/playerValue"
+        app:layout_constraintVertical_bias="0.627" />
+
+    <Button
+        android:id="@+id/stand"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Stand"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.897"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/playerValue"
+        app:layout_constraintVertical_bias="0.627" />
+
+    <EditText
+        android:id="@+id/betInput"
+        android:layout_width="108dp"
+        android:layout_height="53dp"
+        android:ems="10"
+        android:inputType="number"
+        app:layout_constraintBottom_toTopOf="@+id/playerHandDIsplay"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/mainText" />
+
+    <Button
+        android:id="@+id/placeBet"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Place Bet"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toStartOf="@+id/stand"
+        app:layout_constraintHorizontal_bias="0.486"
+        app:layout_constraintStart_toEndOf="@+id/hit"
+        app:layout_constraintTop_toBottomOf="@+id/playerValue"
+        app:layout_constraintVertical_bias="0.627" />
 </androidx.constraintlayout.widget.ConstraintLayout>
