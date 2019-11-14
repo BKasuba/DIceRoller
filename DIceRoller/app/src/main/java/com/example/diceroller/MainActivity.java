@@ -17,18 +17,21 @@ import android.widget.EditText;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import java.util.ArrayList;
 import java.util.Random;
 
 public class MainActivity extends AppCompatActivity {
     EditText userInput;
     static int score = 0;
     int num = 0;
-    static String qstn1 = "If you could go anywhere in the world, where would you go?";
-    static String qstn2 = "If you were stranded on a desert island, what three things would you want to take with you?";
-    static String qstn3 = "If you could eat only one food for the rest of your life, what would that be?";
-    static String qstn4 = "If you won a million dollars, what is the first thing you would buy?";
-    static String qstn5 = "If you could spend the day with one fictional character, who would it be?";
-    static String qstn6 = "If you found a magic lantern and a genie gave you three wishes, what would you wish?";
+
+
+    public static int getBound() {
+        return bound;
+    }
+
+    static int bound = 6;
+    static ArrayList questions = new ArrayList<String>();
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -45,6 +48,19 @@ public class MainActivity extends AppCompatActivity {
                         .setAction("Action", null).show();
             }
         });
+
+        initialise();
+
+    }
+
+    private void initialise() {
+
+        questions.add("If you could go anywhere in the world, where would you go?");
+        questions.add("If you were stranded on a desert island, what three things would you want to take with you?");
+        questions.add("If you could eat only one food for the rest of your life, what would that be?");
+        questions.add("If you won a million dollars, what is the first thing you would buy?");
+        questions.add("If you could spend the day with one fictional character, who would it be?");
+        questions.add("If you found a magic lantern and a genie gave you three wishes, what would you wish?");
     }
 
     @Override
@@ -109,37 +125,19 @@ public class MainActivity extends AppCompatActivity {
     }
     public void dicebrkr(int x ){
         TextView qstn = this.findViewById(R.id.questionDisplay);
-        switch(x){
-            case 0:
-                qstn.setText("Roll the die first!!");
-                break;
-            case 1:
-                qstn.setText(qstn1);
-                break;
-            case 2:
-                qstn.setText(qstn2);
-                break;
-            case 3:
-                qstn.setText(qstn3);
-                break;
-            case 4:
-                qstn.setText(qstn4);
-                break;
-            case 5:
-                qstn.setText(qstn5);
-                break;
-            case 6:
-                qstn.setText(qstn6);
-                break;
-
+      String y =   (String) questions.get(x -1);
+       qstn.setText(y);
 
 
 
         }
 
-    }
+
     public int rndNum(){
         Random r = new Random();
-        return r.nextInt(6)+1;
+        return r.nextInt(bound)+1;
+    }
+    public static void setBound(int bound) {
+        MainActivity.bound = bound;
     }
 }
